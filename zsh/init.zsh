@@ -1,13 +1,12 @@
-export DOTFILES="$(dirname "$0")"
-
 # Custom settings
-source "$DOTFILES/custom/checks.zsh"
-source "$DOTFILES/custom/colors.zsh"
-source "$DOTFILES/custom/zshopts.zsh"
-source "$DOTFILES/custom/exports.zsh"
-source "$DOTFILES/custom/aliases.zsh"
-source "$DOTFILES/custom/prompt.zsh"
+source "$DOTFILES/zsh/custom/checks.zsh"
+source "$DOTFILES/zsh/custom/colors.zsh"
+source "$DOTFILES/zsh/custom/zshopts.zsh"
+source "$DOTFILES/zsh/custom/keys.zsh"
+source "$DOTFILES/zsh/custom/exports.zsh"
+source "$DOTFILES/zsh/custom/aliases.zsh"
+source "$DOTFILES/zsh/custom/prompt.zsh"
 
 # Third-party plugins
-source "$DOTFILES/zsh-autosuggestions/zsh-autosuggestions.zsh"
-source "$DOTFILES/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+source "$DOTFILES/zsh/zsh-autosuggestions/zsh-autosuggestions.zsh"
+source "$DOTFILES/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
