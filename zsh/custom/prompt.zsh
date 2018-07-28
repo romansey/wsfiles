@@ -1,15 +1,14 @@
 get_symbols() {
     local retval=$?
-    [[ $retval -ne 0 ]] && echo -n " %F{red}✘%f"
-    [[ $(jobs -l | wc -l) -gt 0 ]] && echo -n " %F{black}⚙%f"
+    [[ $retval -ne 0 ]] && echo -n " %F{$DOTFILES_RED}✘%f"
+    [[ $(jobs -l | wc -l) -gt 0 ]] && echo -n " %F{$DOTFILES_BRIGHT}⚙%f"
 }
 
 get_git() {
     local branch=$(git_current_branch)
     if [[ -n $branch ]]; then
-        echo -n "  $branch"
+        echo -n " $branch"
         echo -n "$(get_git_status)"
-        echo -n " "
     fi
 }
 
@@ -37,8 +36,7 @@ get_virtualenv() {
 }
 
 git_current_branch() {
-    local ref
-    ref=$(command git symbolic-ref --quiet HEAD 2> /dev/null)
+    local ref=$(command git symbolic-ref --quiet HEAD 2> /dev/null)
     local ret=$?
     if [[ $ret != 0 ]]; then
         [[ $ret == 128 ]] && return  # no git repo.
@@ -47,5 +45,24 @@ git_current_branch() {
     echo ${ref#refs/heads/}
 }
 
+build_prompt() {
+    local statusSymbols=$(get_symbols)
+    local statusVirtualenv=$(get_virtualenv)
+    local statusGit=$(get_git)
+    if [[ -n $statusVirtualenv ]] || [[ -n $statusSymbols ]]; then
+        echo -n "%K{$DOTFILES_GREY}%F{$DOTFILES_BRIGHT}$statusVirtualenv$statusSymbols %f%k"
+        echo -n "%K{$DOTFILES_ORANGE}%F{$DOTFILES_GREY}%f%k"
+    fi
+    echo -n "%K{$DOTFILES_ORANGE} %F{$DOTFILES_BLACK}%~%f %k"
+    if [[ -n $statusGit ]]; then
+        echo -n "%K{$DOTFILES_BLUE}%F{$DOTFILES_ORANGE}%f"
+        echo -n "%F{$DOTFILES_BRIGHT} $statusGit %f%k"
+        echo -n "%F{$DOTFILES_BLUE}%f"
+    else
+        echo -n "%F{$DOTFILES_ORANGE}%f"
+    fi
+    echo -n " "
+}
+
 VIRTUAL_ENV_DISABLE_PROMPT=1
-PS1='%K{red}%F{white}$(get_virtualenv) %f%K{yellow}%F{red}%f$(get_symbols) %F{black}%~%f %k%K{blue}%F{yellow}%f%F{black}$(get_git)%f%k%F{blue}%f '
+PS1='$(build_prompt)'
