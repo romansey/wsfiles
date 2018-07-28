@@ -1,12 +1,12 @@
 # Custom settings
-source "$DOTFILES/zsh/custom/checks.zsh"
-source "$DOTFILES/zsh/custom/colors.zsh"
-source "$DOTFILES/zsh/custom/zshopts.zsh"
-source "$DOTFILES/zsh/custom/keys.zsh"
-source "$DOTFILES/zsh/custom/exports.zsh"
-source "$DOTFILES/zsh/custom/aliases.zsh"
-source "$DOTFILES/zsh/custom/prompt.zsh"
+source "$WSFILES/zsh/custom/checks.zsh"
+source "$WSFILES/zsh/custom/colors.zsh"
+source "$WSFILES/zsh/custom/zshopts.zsh"
+source "$WSFILES/zsh/custom/keys.zsh"
+source "$WSFILES/zsh/custom/exports.zsh"
+source "$WSFILES/zsh/custom/aliases.zsh"
+source "$WSFILES/zsh/custom/prompt.zsh"
 
 # Third-party plugins
-source "$DOTFILES/zsh/zsh-autosuggestions/zsh-autosuggestions.zsh"
-source "$DOTFILES/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+source "$WSFILES/zsh/zsh-autosuggestions/zsh-autosuggestions.zsh"
+source "$WSFILES/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"

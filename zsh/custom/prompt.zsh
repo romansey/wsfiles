@@ -1,7 +1,7 @@
 get_symbols() {
     local retval=$?
-    [[ $retval -ne 0 ]] && echo -n " %F{$DOTFILES_RED}✘%f"
-    [[ $(jobs -l | wc -l) -gt 0 ]] && echo -n " %F{$DOTFILES_BRIGHT}⚙%f"
+    [[ $retval -ne 0 ]] && echo -n " %F{$WSFILES_RED}✘%f"
+    [[ $(jobs -l | wc -l) -gt 0 ]] && echo -n " %F{$WSFILES_BRIGHT}⚙%f"
 }
 
 get_git() {
@@ -50,16 +50,16 @@ build_prompt() {
     local statusVirtualenv=$(get_virtualenv)
     local statusGit=$(get_git)
     if [[ -n $statusVirtualenv ]] || [[ -n $statusSymbols ]]; then
-        echo -n "%K{$DOTFILES_GREY}%F{$DOTFILES_BRIGHT}$statusVirtualenv$statusSymbols %f%k"
-        echo -n "%K{$DOTFILES_ORANGE}%F{$DOTFILES_GREY}%f%k"
+        echo -n "%K{$WSFILES_GREY}%F{$WSFILES_BRIGHT}$statusVirtualenv$statusSymbols %f%k"
+        echo -n "%K{$WSFILES_ORANGE}%F{$WSFILES_GREY}%f%k"
     fi
-    echo -n "%K{$DOTFILES_ORANGE} %F{$DOTFILES_BLACK}%~%f %k"
+    echo -n "%K{$WSFILES_ORANGE} %F{$WSFILES_BLACK}%~%f %k"
     if [[ -n $statusGit ]]; then
-        echo -n "%K{$DOTFILES_BLUE}%F{$DOTFILES_ORANGE}%f"
-        echo -n "%F{$DOTFILES_BRIGHT} $statusGit %f%k"
-        echo -n "%F{$DOTFILES_BLUE}%f"
+        echo -n "%K{$WSFILES_BLUE}%F{$WSFILES_ORANGE}%f"
+        echo -n "%F{$WSFILES_BRIGHT} $statusGit %f%k"
+        echo -n "%F{$WSFILES_BLUE}%f"
     else
-        echo -n "%F{$DOTFILES_ORANGE}%f"
+        echo -n "%F{$WSFILES_ORANGE}%f"
     fi
     echo -n " "
 }

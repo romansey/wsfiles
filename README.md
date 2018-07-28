@@ -1,14 +1,23 @@
-# dotfiles
+# Workstation Files
 
-My dotfiles repository.
+This repository contains all files needed for setting up
+and running my workstation environment. Make sure to
+clone this repository including all submodules.
 
-## ZSH ToDo
+## OS Setup
 
-* Prompt
-    * Git
-    * Python virtualenv
+The folder `os-setup` contains script to prepare a freshly
+installed OS to my needs.
 
-## Other Ideas
+## ZSH
 
-* OS setup
-* Template files (gitconfig?)
+The folder `zsh` contains my ZSH configuration. Add the
+following to your `~/.zshrc` file to activate:
+
+```sh
+WSFILES=(path to this repository)
+source "$WSFILES/zsh/init.zsh"
+```
+
+A terminal font capable of emojis and powerline characters
+is required.

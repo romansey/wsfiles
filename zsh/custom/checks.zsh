@@ -1,5 +1,5 @@
 if [[ $(uname) == 'Linux' ]]; then
-  DOTFILES_OS=linux
+  WSFILES_OS=linux
 elif [[ $(uname) == 'Darwin' ]]; then
-  DOTFILES_OS=osx
+  WSFILES_OS=osx
 fi
