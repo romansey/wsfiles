@@ -1,4 +1,5 @@
 # Custom settings
+source "$WSFILES/zsh/custom/functions.zsh"
 source "$WSFILES/zsh/custom/checks.zsh"
 source "$WSFILES/zsh/custom/colors.zsh"
 source "$WSFILES/zsh/custom/zshopts.zsh"

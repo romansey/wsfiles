@@ -7,5 +7,9 @@ fi
 
 alias l='ls -lh'
 alias ll='ls -lah'
+
 alias editws="$EDITOR $WSFILES"
 alias cdws="cd $WSFILES"
+
+alias glog="git log --all --graph"
+alias gclean="git clean -xdf"
