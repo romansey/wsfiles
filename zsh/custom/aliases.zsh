@@ -1,5 +1,5 @@
 if [[ $WSFILES_OS == 'osx' ]]; then
-    alias ls='ls -G'
+    alias ls='ls -GF'
 else
     alias ls='ls --color=auto'
     alias open='xdg-open'
