@@ -13,3 +13,4 @@ alias cdws="cd $WSFILES"
 
 alias glog="git log --all --graph"
 alias gclean="git clean -xdf"
+alias gf="git fetch -p"
