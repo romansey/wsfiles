@@ -11,6 +11,8 @@ alias ll='ls -lah'
 alias editws="$EDITOR $WSFILES"
 alias cdws="cd $WSFILES"
 
+alias pyenv='source ./env/bin/activate'
+
 alias gco='git checkout'
 alias gcot='git checkout -t'
 alias gcob='git checkout -b'
