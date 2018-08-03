@@ -13,6 +13,22 @@ alias wsrl='source ~/.zshrc'
 
 alias pyenv='source ./env/bin/activate'
 
+alias d='docker'
+alias dco='docker-compose'
+
+alias k='kubectl'
+alias ka='kubectl apply'
+alias kc='kubectl create'
+alias ke='kubectl edit'
+alias kd='kubectl delete'
+alias kg='kubectl get'
+alias kgd='kubectl get deploy'
+alias kgs='kubectl get services'
+alias kgp='kubectl get pods'
+alias kgn='kubectl get nodes'
+alias kci='kubectl cluster-info'
+
+alias g='git'
 alias gco='git checkout'
 alias gcot='git checkout -t'
 alias gcob='git checkout -b'
