@@ -44,7 +44,7 @@ git_scan_directory() {
         if [[ -n $branch ]]; then
             statusSymbols="$(cd "$dir" && git_status)"
             if [[ -n $statusSymbols ]]; then
-                if [[ $statusSymbols =~ .*[±?].* ]]; then
+                if [[ $statusSymbols =~ .*[±?⇡].* ]]; then
                     echo "\033[0;31m$dir [$branch $statusSymbols]\033[0m"
                 else
                     echo "\033[0;33m$dir [$branch $statusSymbols]\033[0m"
