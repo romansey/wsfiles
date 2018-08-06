@@ -9,6 +9,7 @@ HISTSIZE=50000
 SAVEHIST=10000
 setopt hist_expire_dups_first
 setopt hist_ignore_dups
+setopt share_history
 
 # Completion
 unsetopt menu_complete
