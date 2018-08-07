@@ -4,6 +4,7 @@ bindkey -e
 # Cursor navigation
 bindkey '^[[H' beginning-of-line
 bindkey '^[[F' end-of-line
+bindkey '^[[3~' delete-char
 if [[ $WSFILES_OS == 'osx' ]]; then
     bindkey '^[^[[C' forward-word
     bindkey '^[^[[D' backward-word
