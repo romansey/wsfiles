@@ -27,6 +27,8 @@ alias kgs='kubectl get services'
 alias kgp='kubectl get pods'
 alias kgn='kubectl get nodes'
 alias kci='kubectl cluster-info'
+alias kl='kubectl logs'
+alias klf='kubectl logs -f --tail 50'
 
 alias g='git'
 alias gco='git checkout'
