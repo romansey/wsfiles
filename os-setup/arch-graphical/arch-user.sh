@@ -1,5 +1,6 @@
 #!/bin/bash
 set -e
+WSFILES="$(dirname "$0")/../../"
 
 # Install aurman
 git clone https://aur.archlinux.org/yay.git
@@ -22,6 +23,6 @@ export EDITOR=vim
 export PATH="$PATH"
 
 # ZSH configuration
-WSFILES=~/workstation-files
+WSFILES=$WSFILES
 source "$WSFILES/zsh/init.zsh"
 EOF

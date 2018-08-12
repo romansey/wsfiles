@@ -25,7 +25,7 @@ pacman -Sy --noconfirm \
     base-devel vim htop git zsh gdm gnome networkmanager \
     noto-fonts-emoji powerline-fonts docker docker-compose virtualbox \
     virtualbox-host-modules-arch virtualbox-guest-iso \
-    keepassxc go jdk10-openjdk owncloud-client seahorse
+    keepassxc go jdk10-openjdk owncloud-client seahorse python
 
 # Enable services
 systemctl enable gdm
