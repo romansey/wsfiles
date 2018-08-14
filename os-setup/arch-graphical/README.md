@@ -21,6 +21,13 @@
    swapon /dev/xxxy
    ```
 
+   To connect via WIFI, use:
+   ```sh
+   ip link # memorize wifi adapter
+   wpa_supplicant -B -i WIFI_ADAPTER -c <(wpa_passphrase SSID PASSWORD)
+   dhcpcd
+   ```
+
 2. Get and run install scripts:
    ```sh
    wget "https://git.urlaubsgimpel.de/roman/workstation-files/raw/branch/master/os-setup/arch-graphical/arch-install.sh"
@@ -42,8 +49,7 @@
    # Get arch partition UUID
    blkid -s PARTUUID -o value /dev/xxxy
    ```
-   Then add boot entries at `/mnt/boot/loader/entries`. Finally, set
-   default entry in `/mnt/boot/loader/loader.conf`. Example arch entry:
+   Then add boot entries at `/mnt/boot/loader/entries`. Example arch entry:
    ```
    title   Arch Linux
    linux   /vmlinuz-linux
@@ -53,6 +59,13 @@
    ```
    Substitute ID with PARTUUID from before. Skip intel-ucode if no Intel
    machine.
+
+   Edit `/mnt/boot/loader/loader.conf`:
+   ```
+   timeout 5
+   default arch
+   ```
+   Comment out timeout line if no dual boot setup.
 
 5. Reboot and login with normal user
 

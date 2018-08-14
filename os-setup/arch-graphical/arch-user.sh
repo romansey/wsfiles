@@ -9,11 +9,11 @@ cat >~/.zshrc <<EOF
 export EDITOR=vim
 
 # Assemble path
-export PATH="$PATH"
+export PATH="\$PATH"
 
 # ZSH configuration
-WSFILES=$WSFILES
-source "$WSFILES/zsh/init.zsh"
+WSFILES=\$WSFILES
+source "\$WSFILES/zsh/init.zsh"
 EOF
 
 # Install aurman
