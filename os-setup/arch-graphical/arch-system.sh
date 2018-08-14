@@ -40,7 +40,7 @@ sed -r -i 's/^# (%sudo.*)$/\1/' /etc/sudoers
 
 # User creation
 groupadd sudo
-useradd -m -G sudo,vboxusers roman
+useradd -m -G sudo,vboxusers,docker roman
 echo "Please set user password:"
 passwd "$USERNAME"
 
