@@ -1,6 +1,6 @@
 #!/bin/bash
 set -e
-WSFILES="$(dirname "$0")/../../"
+cd "$(dirname "$0")/../../"
 
 # Setup ZSH
 chsh -s /bin/zsh
@@ -12,7 +12,7 @@ export EDITOR=vim
 export PATH="\$PATH"
 
 # ZSH configuration
-WSFILES=\$WSFILES
+WSFILES=$(pwd)
 source "\$WSFILES/zsh/init.zsh"
 EOF
 

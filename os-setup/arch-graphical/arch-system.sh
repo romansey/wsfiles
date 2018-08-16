@@ -22,10 +22,11 @@ passwd
 
 # Official packages
 pacman -Sy --noconfirm \
-    base-devel vim htop git zsh gdm gnome networkmanager \
-    noto-fonts-emoji powerline-fonts docker docker-compose virtualbox \
+    base-devel networkmanager gdm gnome seahorse zsh vim htop \
+    go jdk10-openjdk python python2 python-pip python2-pip git \
+    docker docker-compose virtualbox \
     virtualbox-host-modules-arch virtualbox-guest-iso \
-    keepassxc go jdk10-openjdk owncloud-client seahorse python ttf-dejavu
+    keepassxc owncloud-client ttf-dejavu noto-fonts-emoji powerline-fonts
 
 # Enable services
 systemctl enable gdm
