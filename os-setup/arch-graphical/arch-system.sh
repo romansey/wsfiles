@@ -22,7 +22,7 @@ passwd
 
 # Official packages
 pacman -Sy --noconfirm \
-    base-devel networkmanager gdm gnome seahorse zsh vim htop \
+    base-devel networkmanager ntfs-3g gdm gnome seahorse zsh vim htop \
     go jdk10-openjdk python python2 python-pip python2-pip git \
     docker docker-compose virtualbox \
     virtualbox-host-modules-arch virtualbox-guest-iso \
