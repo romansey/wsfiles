@@ -38,6 +38,7 @@ echo 'vboxdrv' >>/etc/modules-load.d/modules.conf
 
 # Package configuration
 sed -r -i 's/^# (%sudo.*)$/\1/' /etc/sudoers
+sed -r -i 's/^#(WaylandEnable.*)$/\1/' /etc/gdm/custom.conf
 
 # User creation
 groupadd sudo
