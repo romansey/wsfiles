@@ -28,12 +28,15 @@ git_current_branch() {
 
 # Performs a fetch for all Git repo directories in the current dir
 git_fetch_all() {
+    set +m
     for dir in ./*/; do
         if [[ -d "$dir/.git" ]]; then
             echo "Fetching repo at $dir ..."
-            (cd "$dir" && git fetch --all --prune)
+            (cd "$dir" && git fetch --all --prune >/dev/null && echo "Fetching of repo $dir complete.") &
         fi
     done
+    wait
+    set -m
 }
 
 # Outputs the Git status for all subdirectories
