@@ -14,6 +14,9 @@ export PATH="\$PATH"
 # ZSH configuration
 WSFILES=$(pwd)
 source "\$WSFILES/zsh/init.zsh"
+
+# Additional initialization
+source <(helm completion zsh)
 EOF
 
 # Install aurman
@@ -25,4 +28,5 @@ rm -rf yay
 
 # Install AUR packages
 yay -Sy --noconfirm \
-    kubectl-bin minikube-bin visual-studio-code-bin nvm google-chrome
+    kubectl-bin minikube-bin kubernetes-helm \
+    visual-studio-code-bin nvm google-chrome
