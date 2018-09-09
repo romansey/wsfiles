@@ -6,7 +6,7 @@ export HOSTNAME="arch-workstation"
 export USERNAME="user"
 export MIRROR_COUNTRY="Germany"
 export TIMEZONE="Europe/Berlin"
-export GEN_LOCALES=("en_US.UTF-8" "de_DE.UTF-8")
+export GEN_LOCALES="en_US.UTF-8 de_DE.UTF-8"
 export USE_LOCALE="en_US.UTF-8"
 export USE_KEYMAP="de-latin1"
 
