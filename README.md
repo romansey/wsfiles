@@ -2,12 +2,16 @@
 
 This repository contains all files needed for setting up
 and running my workstation environment. Make sure to
-clone this repository including all submodules.
+clone this repository including all submodules:
+
+```sh
+git clone --recurse-submodules git@github.com:Urlaubsgimpel/wsfiles.git
+```
 
 ## OS Setup
 
-The folder `os-setup` contains script to prepare a freshly
-installed OS to my needs.
+The folder `os-setup` contains scripts to prepare a freshly
+installed OS to suit my needs.
 
 ## ZSH
 

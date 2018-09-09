@@ -17,7 +17,6 @@ source "\$WSFILES/zsh/init.zsh"
 
 # Additional initialization
 source <(helm completion zsh)
-source <(minikube completion zsh)
 EOF
 
 # Install aurman

@@ -30,8 +30,9 @@
 
 2. Get and run install scripts:
    ```sh
-   wget "https://git.urlaubsgimpel.de/roman/workstation-files/raw/branch/master/os-setup/arch-graphical/arch-install.sh"
-   wget "https://git.urlaubsgimpel.de/roman/workstation-files/raw/branch/master/os-setup/arch-graphical/arch-system.sh"
+   wget "https://raw.githubusercontent.com/Urlaubsgimpel/wsfiles/master/os-setup/arch/arch-install.sh"
+   wget "https://raw.githubusercontent.com/Urlaubsgimpel/wsfiles/master/os-setup/arch/arch-system.sh"
+   vim arch-install.sh # edit settings of the install script
    chmod +x *.sh
    ./arch-install.sh
    ```
@@ -71,6 +72,6 @@
 
 6. Checkout workstation files and execute user setup
    ```sh
-   git clone --recurse-submodules git@git.urlaubsgimpel.de:roman/workstation-files.git ~/workstation-files
-   ./workstation-files/os-setup/arch-graphical/arch-user.sh
+   git clone --recurse-submodules git@github.com:Urlaubsgimpel/wsfiles.git
+   ./wsfiles/os-setup/arch/arch-user.sh
    ```

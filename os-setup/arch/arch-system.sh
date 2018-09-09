@@ -1,24 +1,18 @@
 #!/bin/bash
 set -e
 
-echo -n "Machine hostname: "
-read HOSTNAME
-echo -n "Username: "
-read USERNAME
-
-ln -sf /usr/share/zoneinfo/Europe/Berlin /etc/localtime
+ln -sf "/usr/share/zoneinfo/$TIMEZONE" /etc/localtime
 hwclock --systohc
-sed -r -i 's/^#(en_US.UTF-8.*)$/\1/' /etc/locale.gen
-sed -r -i 's/^#(de_DE.UTF-8.*)$/\1/' /etc/locale.gen
+for locale in $GEN_LOCALES; do
+    sed -r -i "s/^#($locale.*)$/\1/" /etc/locale.gen
+done
 locale-gen 
-echo 'LANG=en_US.UTF-8' >/etc/locale.conf
-echo 'KEYMAP=de-latin1' >/etc/vconsole.conf
+echo "LANG=$USE_LOCALE" >/etc/locale.conf
+echo "KEYMAP=$USE_KEYMAP" >/etc/vconsole.conf
 echo "$HOSTNAME" >/etc/hostname
 echo "127.0.0.1 localhost" >>/etc/hosts
 echo "::1 localhost" >>/etc/hosts
 echo "127.0.1.1 $HOSTNAME.localdomain $HOSTNAME" >>/etc/hosts
-echo "Please set root password:"
-passwd
 
 # Official packages
 pacman -Sy --noconfirm \
@@ -40,11 +34,13 @@ echo 'vboxdrv' >>/etc/modules-load.d/modules.conf
 sed -r -i 's/^# (%sudo.*)$/\1/' /etc/sudoers
 sed -r -i 's/^#(WaylandEnable.*)$/\1/' /etc/gdm/custom.conf
 
-# User creation
-groupadd sudo
-useradd -m -G sudo,vboxusers,docker roman
-echo "Please set user password:"
-passwd "$USERNAME"
-
 # Boot loader
 bootctl --path=/boot install
+
+# User creation and password settings
+groupadd sudo
+useradd -m -G sudo,vboxusers,docker "$USERNAME"
+echo "Please set root password:"
+passwd
+echo "Please set user password:"
+passwd "$USERNAME"
