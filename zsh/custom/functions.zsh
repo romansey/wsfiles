@@ -17,7 +17,8 @@ git_status() {
 
 # Outputs the current Git branch or commit hash if any.
 git_current_branch() {
-    local ref=$(command git symbolic-ref --quiet HEAD 2> /dev/null)
+    local ref
+    ref=$(command git symbolic-ref --quiet HEAD 2> /dev/null)
     local ret=$?
     if [[ $ret != 0 ]]; then
         [[ $ret == 128 ]] && return
