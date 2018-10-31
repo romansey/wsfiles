@@ -19,7 +19,7 @@ source "\$WSFILES/zsh/init.zsh"
 source <(helm completion zsh)
 EOF
 
-# Install aurman
+# Install yay
 git clone https://aur.archlinux.org/yay.git
 cd yay
 makepkg -si --skippgpcheck
