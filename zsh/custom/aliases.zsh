@@ -27,7 +27,11 @@ alias kgd='kubectl get deploy'
 alias kgs='kubectl get services'
 alias kgp='kubectl get pods'
 alias kgn='kubectl get nodes'
-alias kci='kubectl cluster-info'
+alias ki='kubectl cluster-info'
+alias kcf='kubectl config'
+alias kcfg='kubectl config get-contexts'
+alias kcfu='kubectl config use-context'
+alias kcfe="$EDITOR ~/.kube/config"
 alias kl='kubectl logs'
 alias klf='kubectl logs -f --tail 50'
 
