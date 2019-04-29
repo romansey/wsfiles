@@ -35,6 +35,7 @@ alias kcfe="$EDITOR ~/.kube/config"
 alias kl='kubectl logs'
 alias klf='kubectl logs -f --tail 50'
 alias kdes='kubectl describe'
+alias kpf='kubectl port-forward'
 
 alias g='git'
 alias gcl='git clone'
