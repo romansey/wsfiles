@@ -1,4 +1,5 @@
 [global_config]
+  title_font = Monospace 12
 [keybindings]
   edit_tab_title = None
   switch_to_tab_1 = <Alt>1
@@ -24,7 +25,9 @@
   [[default]]
     background_color = "#002b36"
     cursor_color = "#aaaaaa"
+    font = Monospace 12
     foreground_color = "#b8c6c8"
     palette = "#073642:#dc322f:#859900:#b58900:#268bd2:#d33682:#2aa198:#eee8d5:#073642:#dc322f:#859900:#b58900:#268bd2:#d33682:#2aa198:#eee8d5"
     scrollbar_position = hidden
     show_titlebar = False
+    use_system_font = False
