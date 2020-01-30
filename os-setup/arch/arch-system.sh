@@ -14,16 +14,19 @@ echo "127.0.0.1 localhost" >>/etc/hosts
 echo "::1 localhost" >>/etc/hosts
 echo "127.0.1.1 $HOSTNAME.localdomain $HOSTNAME" >>/etc/hosts
 
+# Faster AUR builds
+sed -i "s/PKGEXT=.*/PKGEXT='pkg.tar'/" /etc/makepkg.conf
+
 # Official packages
 pacman -Sy --noconfirm \
-    base-devel networkmanager ntfs-3g gdm gnome seahorse zsh vim htop \
-    go jdk10-openjdk python python2 python-pip python2-pip git \
+    base-devel networkmanager ntfs-3g sddm plasma zsh vim htop \
+    go jdk11-openjdk python python-pip git terminator \
     docker docker-compose virtualbox \
     virtualbox-host-modules-arch virtualbox-guest-iso \
     keepassxc owncloud-client ttf-dejavu noto-fonts-emoji powerline-fonts
 
 # Enable services
-systemctl enable gdm
+systemctl enable sddm
 systemctl enable NetworkManager
 systemctl enable docker
 
@@ -32,7 +35,6 @@ echo 'vboxdrv' >>/etc/modules-load.d/modules.conf
 
 # Package configuration
 sed -r -i 's/^# (%sudo.*)$/\1/' /etc/sudoers
-sed -r -i 's/^#(WaylandEnable.*)$/\1/' /etc/gdm/custom.conf
 
 # Boot loader
 bootctl --path=/boot install
