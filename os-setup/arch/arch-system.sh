@@ -15,13 +15,13 @@ echo "::1 localhost" >>/etc/hosts
 echo "127.0.1.1 $HOSTNAME.localdomain $HOSTNAME" >>/etc/hosts
 
 # Faster AUR builds
-sed -i "s/PKGEXT=.*/PKGEXT='pkg.tar'/" /etc/makepkg.conf
+sed -i "s/PKGEXT=.*/PKGEXT='.pkg.tar'/" /etc/makepkg.conf
 
 # Official packages
 pacman -Sy --noconfirm \
-    base-devel networkmanager ntfs-3g sddm plasma zsh vim htop \
+    base-devel linux linux-firmware networkmanager ntfs-3g sddm plasma zsh vim htop \
     go jdk11-openjdk python python-pip git terminator \
-    docker docker-compose virtualbox \
+    docker docker-compose virtualbox openssh \
     virtualbox-host-modules-arch virtualbox-guest-iso \
     keepassxc owncloud-client ttf-dejavu noto-fonts-emoji powerline-fonts
 
