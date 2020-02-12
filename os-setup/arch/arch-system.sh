@@ -23,7 +23,10 @@ pacman -Sy --noconfirm \
     go jdk11-openjdk python python-pip git terminator \
     docker docker-compose virtualbox openssh \
     virtualbox-host-modules-arch virtualbox-guest-iso \
-    keepassxc owncloud-client ttf-dejavu noto-fonts-emoji powerline-fonts
+    keepassxc owncloud-client ttf-dejavu noto-fonts-emoji powerline-fonts \
+    sweeper print-manager okular ksystemlog krdc kompare kleopatra kipi-plugins \
+    kgpg kdf kdegraphics-thumbnailers kdenetwork-filesharing kcolorchooser \
+    kcharselect kcalc gwenview filelight ffmpegthumbs dolphin dolphin-plugins ark
 
 # Enable services
 systemctl enable sddm
