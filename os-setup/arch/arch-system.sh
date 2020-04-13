@@ -21,7 +21,7 @@ sed -i "s/PKGEXT=.*/PKGEXT='.pkg.tar'/" /etc/makepkg.conf
 pacman -Sy --noconfirm \
     base-devel linux linux-firmware networkmanager ntfs-3g sddm plasma zsh vim htop \
     go jdk11-openjdk python python-pip git terminator \
-    docker docker-compose virtualbox openssh \
+    docker docker-compose helm virtualbox openssh \
     virtualbox-host-modules-arch virtualbox-guest-iso \
     keepassxc owncloud-client ttf-dejavu noto-fonts-emoji powerline-fonts \
     sweeper print-manager okular ksystemlog krdc kompare kleopatra kipi-plugins \

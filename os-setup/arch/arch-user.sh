@@ -28,5 +28,5 @@ rm -rf yay
 
 # Install AUR packages
 yay -Sy --noconfirm \
-    kubectl-bin minikube-bin kubernetes-helm-bin \
+    kubectl-bin minikube-bin kubernetes-helmfile-bin \
     visual-studio-code-bin nvm google-chrome
