@@ -5,7 +5,7 @@ and running my workstation environment. Make sure to
 clone this repository including all submodules:
 
 ```sh
-git clone --recurse-submodules git@github.com:Urlaubsgimpel/wsfiles.git
+git clone --recurse-submodules git@github.com:romansey/wsfiles.git
 ```
 
 ## OS Setup
