@@ -11,8 +11,6 @@ alias ll='ls -lah'
 alias wscd="cd $WSFILES"
 alias wsrl='source ~/.zshrc'
 
-alias pyenv='source ./env/bin/activate'
-
 alias d='docker'
 alias dco='docker-compose'
 alias dcol='docker-compose logs -f --tail=100'
