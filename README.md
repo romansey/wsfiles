@@ -19,7 +19,9 @@ The folder `zsh` contains my ZSH configuration. Add the
 following to your `~/.zshrc` file to activate:
 
 ```sh
+# wsfiles
 WSFILES=(path to this repository)
+WSFILES_MACHINE="MyMachine" # optional, for prompt
 source "$WSFILES/zsh/init.zsh"
 ```
 

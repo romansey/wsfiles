@@ -38,7 +38,7 @@ build_prompt() {
 
     # Set prompt segments and their desired fg and bg colors.
     # Texts will be trimmed and segments skipped, if text is empty.
-    local segment_texts=("$(prompt_virtualenv) $(prompt_symbols $exit_code)" '%~' "$(prompt_git)")
+    local segment_texts=("$WSFILES_MACHINE $(prompt_virtualenv) $(prompt_symbols $exit_code)" '%~' "$(prompt_git)")
     local segment_colors_fg=("$WSFILES_BRIGHT" "$WSFILES_DARK" "$WSFILES_BRIGHT")
     local segment_colors_bg=("$WSFILES_GREY" "$WSFILES_ORANGE" "$WSFILES_BLUE")
 
