@@ -1,0 +1,43 @@
+#!/bin/bash
+set -e
+
+ensureExists() {
+  if ! limactl list ai-sandbox >/dev/null; then
+    echo "Sandbox VM does not exist. Creating..."
+    limactl start -y --progress "$(dirname "$0")/ai-sandbox.yaml"
+    echo "VM created."
+    limactl stop ai-sandbox
+  fi
+}
+
+shell() {
+  ensureExists
+  echo "Entering sandbox VM shell..."
+  workdir="$(pwd)"
+  if limactl shell --start --workdir "/" ai-sandbox test -d "$workdir" 2>/dev/null; then
+    limactl shell --start --workdir "$workdir" ai-sandbox
+  else
+    echo "⚠️ The current directory is not mounted in the sandbox VM."
+    limactl shell --start --workdir "/" ai-sandbox
+  fi
+}
+
+stop() {
+  limactl stop ai-sandbox
+}
+
+delete() {
+  limactl delete -f ai-sandbox
+}
+
+recreate() {
+  delete
+  ensureExists
+}
+
+case "${1:-}" in
+  stop) stop ;;
+  delete) delete ;;
+  recreate) recreate ;;
+  *) shell ;;
+esac

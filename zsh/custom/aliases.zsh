@@ -71,3 +71,5 @@ alias gpa='git push --all'
 alias gpt='git push --tags'
 alias gpat='git push --all && git push --tags'
 alias gprunetags='git fetch --prune origin "+refs/tags/*:refs/tags/*"'
+
+alias ai="$WSFILES/ai/sandbox/sandbox"
