@@ -1,0 +1,75 @@
+images:
+  - location: "https://cloud.debian.org/images/cloud/trixie/20260413-2447/debian-13-genericcloud-arm64-20260413-2447.qcow2"
+    arch: "aarch64"
+
+cpus: 4
+memory: "10GiB"
+disk: "50GiB"
+
+mounts:
+  - location: "~/Projects"
+    writable: true
+  - location: "~/wsfiles"
+    mountPoint: "{{.Home}}/wsfiles"
+    writable: true
+  - location: "~/.config/opencode"
+    mountPoint: "{{.Home}}/.config/opencode"
+    writable: true
+  - location: "~/.local/share/opencode"
+    mountPoint: "{{.Home}}/.local/share/opencode"
+    writable: true
+  - location: "~/.claude"
+    mountPoint: "{{.Home}}/.claude"
+    writable: true
+
+containerd:
+  system: false
+  user: false
+
+user:
+  shell: /usr/bin/zsh
+
+provision:
+  - mode: system
+    script: |
+      #!/bin/bash
+
+      # System Basics
+      apt-get update
+      apt-get upgrade -y
+      apt-get install -y htop vim curl git zsh ca-certificates jq yq zip build-essential
+
+      # Docker
+      curl -fsSL https://get.docker.com | bash
+  - mode: user
+    script: |
+      #!/bin/bash
+
+      # Add self to docker group
+      sudo usermod -aG docker "$USER"
+
+      # Add shell config
+      cat >>"$HOME/.zshrc" <<'EOF'
+      export PATH="$PATH:$HOME/.local/bin"
+
+      # wsfiles
+      WSFILES=$HOME/wsfiles
+      WSFILES_MACHINE="AI Sandbox"
+      source "$WSFILES/zsh/init.zsh"
+
+      # brew
+      eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv zsh)"
+
+      # nvm
+      export NVM_DIR="$HOME/.nvm"
+        [ -s "/home/linuxbrew/.linuxbrew/opt/nvm/nvm.sh" ] && \. "/home/linuxbrew/.linuxbrew/opt/nvm/nvm.sh"
+      EOF
+
+      # brew
+      /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+      eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv zsh)"
+
+      # Install tools
+      brew install opencode glab uv go poetry pyenv nvm
+      curl -s "https://get.sdkman.io" | bash
+      curl -fsSL https://claude.ai/install.sh | bash
