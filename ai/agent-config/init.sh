@@ -7,11 +7,13 @@ main() {
   mkdir -p "$HOME/.claude" "$HOME/.config/opencode"
 
   linkIfNotExists "$HOME/.claude" "CLAUDE.md" "./AGENTS.md"
-  linkIfNotExists "$HOME/.claude" "skills" "./claude/skills"
+  linkIfNotExists "$HOME/.claude" "skills" "./skills"
 
   linkIfNotExists "$HOME/.config/opencode" "AGENTS.md" "./AGENTS.md"
   linkIfNotExists "$HOME/.config/opencode" "agents" "./opencode/agents"
   linkIfNotExists "$HOME/.config/opencode" "commands" "./opencode/commands"
+
+  linkIfNotExists "$HOME/.pi/agent" "skills" "./skills"
 }
 
 linkIfNotExists() {
