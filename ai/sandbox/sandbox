@@ -1,6 +1,8 @@
 #!/bin/bash
 set -e
 
+export LIMA_SHELLENV_BLOCK="*"
+
 ensureExists() {
   if ! limactl list ai-sandbox >/dev/null; then
     echo "Sandbox VM does not exist. Creating..."
@@ -15,10 +17,10 @@ shell() {
   echo "Entering sandbox VM shell..."
   workdir="$(pwd)"
   if limactl shell --start --workdir "/" ai-sandbox test -d "$workdir" 2>/dev/null; then
-    limactl shell --start --workdir "$workdir" ai-sandbox
+    limactl shell --start --preserve-env --workdir "$workdir" ai-sandbox
   else
     echo "⚠️ The current directory is not mounted in the sandbox VM."
-    limactl shell --start --workdir "/" ai-sandbox
+    limactl shell --start --preserve-env --workdir "/" ai-sandbox
   fi
 }
 

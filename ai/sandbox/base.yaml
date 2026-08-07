@@ -1,5 +1,5 @@
 images:
-  - location: "https://cloud.debian.org/images/cloud/trixie/20260413-2447/debian-13-genericcloud-arm64-20260413-2447.qcow2"
+  - location: "https://cloud.debian.org/images/cloud/trixie/20260712-2537/debian-13-genericcloud-arm64-20260712-2537.qcow2"
     arch: "aarch64"
 
 cpus: 4
@@ -21,6 +21,9 @@ mounts:
   - location: "~/.claude"
     mountPoint: "{{.Home}}/.claude"
     writable: true
+  - location: "~/.pi/agent"
+    mountPoint: "{{.Home}}/.pi/agent"
+    writable: true
 
 containerd:
   system: false
@@ -34,6 +37,9 @@ provision:
     script: |
       #!/bin/bash
 
+      # Exit if already provisioned
+      [ -f /lima-provisioned ] && exit 0
+
       # System Basics
       apt-get update
       apt-get upgrade -y
@@ -41,9 +47,15 @@ provision:
 
       # Docker
       curl -fsSL https://get.docker.com | bash
+
+      # Create provisioning marker
+      touch /lima-provisioned
   - mode: user
     script: |
       #!/bin/bash
+
+      # Exit if already provisioned
+      grep -q 'wsfiles' $HOME/.zshrc && exit 0
 
       # Add self to docker group
       sudo usermod -aG docker "$USER"
@@ -63,6 +75,9 @@ provision:
       # nvm
       export NVM_DIR="$HOME/.nvm"
         [ -s "/home/linuxbrew/.linuxbrew/opt/nvm/nvm.sh" ] && \. "/home/linuxbrew/.linuxbrew/opt/nvm/nvm.sh"
+
+      # mise
+      eval "$(mise activate zsh)"
       EOF
 
       # brew
@@ -70,6 +85,6 @@ provision:
       eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv zsh)"
 
       # Install tools
-      brew install opencode glab uv go poetry pyenv nvm
+      brew install opencode glab uv go poetry pyenv nvm mise pi-coding-agent
       curl -s "https://get.sdkman.io" | bash
       curl -fsSL https://claude.ai/install.sh | bash

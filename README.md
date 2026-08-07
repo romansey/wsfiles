@@ -29,3 +29,5 @@ Inside the sandbox, various tools are available (see [VM config](./ai/sandbox/ai
 Run `./ai/agent-config/init.sh` to make my opencode and Claude Code configuration available to both the workstation and the sandbox.
 
 The sandbox requires `lima` to be installed on the workstation.
+
+Set `LIMA_SHELLENV_ALLOW` to a comma separated list of shell env patterns to pass to the sandbox VM.
